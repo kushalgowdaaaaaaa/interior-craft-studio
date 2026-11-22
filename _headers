@@ -1,0 +1,23 @@
+# Cloudflare Pages headers. Keep this file next to index.html.
+
+# Security headers for every page
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+
+# Photos and logo: cached for a day, refreshed in the background
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Fonts never change: cached for a year
+/assets/fonts/*
+  ! Cache-Control
+  Cache-Control: public, max-age=31536000, immutable
+
+# Keep the setup notes out of Google
+/README.md
+  X-Robots-Tag: noindex

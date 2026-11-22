@@ -181,18 +181,30 @@ p{margin:0;text-wrap:pretty}
 .work__head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,72px)}
 .work-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(40px,5vw,64px) 24px;align-items:start}
 .work-item{margin:0}
-.frame{background:var(--sand);overflow:hidden}
-.frame img{width:100%;height:100%;object-fit:cover}
+.frame{background:var(--sand);overflow:hidden;border-radius:2px}
+.frame img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.frame:hover img{transform:scale(1.02)}
 .work-item figcaption{margin-top:16px;display:flex;flex-direction:column;gap:2px}
 .work-item strong{font:400 1.2rem/1.3 var(--serif)}
 .work-item span{color:var(--umber);font-size:.9375rem}
-.w-living{grid-column:1/6}
+
+.w-construction{grid-column:1/6}
+.w-construction .frame{aspect-ratio:2/3}
+
+.w-living-real{grid-column:6/13;margin-top:clamp(32px,5vw,80px)}
+.w-living-real .frame{aspect-ratio:16/9}
+
+.w-kitchen-real{grid-column:1/7}
+.w-kitchen-real .frame{aspect-ratio:16/10}
+
+.w-bedroom-real{grid-column:7/13;margin-top:clamp(28px,4vw,64px)}
+.w-bedroom-real .frame{aspect-ratio:16/9}
+
+.w-entrance{grid-column:2/7}
+.w-entrance .frame{aspect-ratio:1/1}
+
+.w-living{grid-column:8/13;margin-top:clamp(28px,4vw,64px)}
 .w-living .frame{aspect-ratio:8/11}
-.w-kitchen{grid-column:7/13;margin-top:clamp(64px,12vw,180px)}
-.w-kitchen .frame{aspect-ratio:3/2}
-.w-wardrobe{grid-column:2/7}
-.w-wardrobe .frame,.w-entrance .frame{aspect-ratio:1}
-.w-entrance{grid-column:8/12;margin-top:clamp(48px,8vw,120px)}
 
 /* Contact */
 .reach{list-style:none;margin:clamp(48px,6vw,80px) 0 0;padding:0;border-top:1px solid var(--oat)}
@@ -249,9 +261,12 @@ p{margin:0;text-wrap:pretty}
   .work-grid::-webkit-scrollbar{display:none}
   .work-item{flex:0 0 min(82vw, 340px);scroll-snap-align:start;margin:0!important}
   .work-item .frame{width:100%;height:auto}
+  .w-construction .frame{aspect-ratio:2/3}
+  .w-living-real .frame{aspect-ratio:16/9}
+  .w-kitchen-real .frame{aspect-ratio:16/10}
+  .w-bedroom-real .frame{aspect-ratio:16/9}
+  .w-entrance .frame{aspect-ratio:1/1}
   .w-living .frame{aspect-ratio:8/11}
-  .w-kitchen .frame{aspect-ratio:3/2}
-  .w-wardrobe .frame,.w-entrance .frame{aspect-ratio:1/1}
   .work-item figcaption{max-width:100%}
   .reach a{grid-template-columns:minmax(0,1fr) 44px;padding:24px 0}
   .reach__label{grid-column:1/-1}
@@ -468,21 +483,29 @@ p{margin:0;text-wrap:pretty}
       </div>
       <!-- EDIT: replace the files in /images with your project photos, keeping the same names -->
       <div class="work-grid">
-        <figure class="work-item w-living">
-          <div class="frame"><img src="images/work-living.webp" width="800" height="1100" alt="Fluted wall panel behind a low oak console" loading="lazy" decoding="async"></div>
-          <figcaption><strong>Living room</strong><span>Fluted wall panel and a low oak console</span></figcaption>
+        <figure class="work-item w-construction">
+          <div class="frame"><img src="images/work-construction.webp" width="682" height="1024" alt="Multi-level modern residential building construction with fluted facade" loading="lazy" decoding="async"></div>
+          <figcaption><strong>Residential Construction</strong><span>Multi-level villa with fluted facade &amp; timber louvers</span></figcaption>
         </figure>
-        <figure class="work-item w-kitchen">
-          <div class="frame"><img src="images/work-kitchen.webp" width="1200" height="800" alt="Handleless kitchen base units under an open oak shelf" loading="lazy" decoding="async"></div>
-          <figcaption><strong>Kitchen</strong><span>Handleless base units with open oak shelving</span></figcaption>
+        <figure class="work-item w-living-real">
+          <div class="frame"><img src="images/work-living-real.webp" width="1024" height="576" alt="Open concept living room with brass-trim pooja room and designer ceiling" loading="lazy" decoding="async"></div>
+          <figcaption><strong>Living &amp; Pooja Space</strong><span>Open layout with brass-inlay glass mandir &amp; false ceiling</span></figcaption>
         </figure>
-        <figure class="work-item w-wardrobe">
-          <div class="frame"><img src="images/work-wardrobe.webp" width="900" height="900" alt="Full-height wardrobe with slim oak pulls beside an arched mirror" loading="lazy" decoding="async"></div>
-          <figcaption><strong>Bedroom</strong><span>Full-height wardrobe with slim oak pulls</span></figcaption>
+        <figure class="work-item w-kitchen-real">
+          <div class="frame"><img src="images/work-kitchen-real.webp" width="1024" height="638" alt="Modern modular kitchen with illuminated glass crockery bar and marble finish" loading="lazy" decoding="async"></div>
+          <figcaption><strong>Modular Kitchen &amp; Bar</strong><span>Backlit glass crockery unit &amp; integrated appliances</span></figcaption>
+        </figure>
+        <figure class="work-item w-bedroom-real">
+          <div class="frame"><img src="images/work-bedroom-real.webp" width="1024" height="576" alt="Master bedroom with full-height sliding wardrobe and fluted wall panel" loading="lazy" decoding="async"></div>
+          <figcaption><strong>Master Bedroom</strong><span>Full-height sliding wardrobe with brass inlays</span></figcaption>
         </figure>
         <figure class="work-item w-entrance">
           <div class="frame"><img src="images/work-entrance.webp" width="900" height="900" alt="Arched doorway beside a built-in plaster bench" loading="lazy" decoding="async"></div>
-          <figcaption><strong>Entrance</strong><span>Arched opening and a built-in bench</span></figcaption>
+          <figcaption><strong>Foyer &amp; Entryway</strong><span>Arched architectural opening and built-in bench</span></figcaption>
+        </figure>
+        <figure class="work-item w-living">
+          <div class="frame"><img src="images/work-living.webp" width="800" height="1100" alt="Vertical fluted oak wall panel behind low media console" loading="lazy" decoding="async"></div>
+          <figcaption><strong>Architectural Woodwork</strong><span>Fluted oak wall panelling and low floating console</span></figcaption>
         </figure>
       </div>
     </div>
