@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interior Craft Studio · Interior planning, design and execution in one place</title>
+<meta name="description" content="Interior Craft Studio plans, designs and builds interiors for homes and workspaces. Planning, design and execution, all in one place, with one team from the first measurement to handover.">
+<meta name="theme-color" content="#F6F1EA">
+<!-- EDIT: replace https://your-domain.vercel.app with your live address after the first deploy -->
+<link rel="canonical" href="https://your-domain.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Interior Craft Studio">
+<meta property="og:description" content="Interior planning, design and execution, all in one place.">
+<meta property="og:url" content="https://your-domain.vercel.app/">
+<meta property="og:image" content="https://your-domain.vercel.app/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/marcellus.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="images/hero.webp" as="image" type="image/webp" fetchpriority="high">
+<script>document.documentElement.classList.add('js','is-intro')</script>
+<style>
+@font-face{font-family:"Marcellus";src:url(assets/fonts/marcellus.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Jost";src:url(assets/fonts/jost.woff2) format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
+
+:root{
+  --linen:#F6F1EA;   /* page */
+  --chalk:#FDFBF8;   /* lightest white */
+  --sand:#ECE3D6;    /* beige band */
+  --oat:#D9CCBA;     /* hairlines */
+  --umber:#6B5C4E;   /* secondary text */
+  --walnut:#2F261F;  /* primary text */
+  --brass:#9A7B4F;   /* drawing lines */
+  --serif:"Marcellus","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --sans:"Jost",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --pad:clamp(20px,5vw,56px);
+  --max:1240px;
+  --section:clamp(80px,11vw,152px);
+  --ease:cubic-bezier(.65,0,.25,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:76px}
+html.is-intro,html.lock{overflow:hidden}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--linen);color:var(--walnut);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+::selection{background:var(--sand)}
+:focus-visible{outline:2px solid var(--walnut);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:200;background:var(--walnut);color:var(--linen);padding:10px 16px;text-decoration:none}
+.skip-link:focus{top:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* ---------- Intro ---------- */
+.intro{display:none}
+.js .intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--linen);cursor:pointer}
+.intro__stack{display:grid;justify-items:center;gap:20px;padding:24px}
+.intro__mask{overflow:hidden;transform:translateY(100%)}
+.intro__mask img{width:clamp(112px,26vw,168px);transform:translateY(-100%)}
+.intro__word{width:clamp(190px,52vw,300px);opacity:0}
+.intro__rule{display:block;width:clamp(190px,52vw,300px);height:1px;background:var(--brass);transform:scaleX(0)}
+.go .intro{animation:intro-lift .7s cubic-bezier(.76,0,.24,1) 1.4s forwards}
+.go .intro__mask{animation:mask-up .85s var(--ease) .05s forwards}
+.go .intro__mask img{animation:mask-down .85s var(--ease) .05s forwards}
+.go .intro__word{animation:rise .6s ease-out .62s forwards}
+.go .intro__rule{animation:rule .6s var(--ease) .78s forwards}
+.go .intro.skip{animation:intro-skip .45s cubic-bezier(.76,0,.24,1) forwards}
+@keyframes mask-up{to{transform:none}}
+@keyframes mask-down{to{transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes rule{to{transform:scaleX(1)}}
+@keyframes intro-lift{to{transform:translateY(-100%);visibility:hidden}}
+@keyframes intro-skip{to{transform:translateY(-100%);visibility:hidden}}
+
+/* ---------- Header ---------- */
+.site-header{position:sticky;top:0;z-index:50;transition:background-color .3s,box-shadow .3s}
+.site-header.is-scrolled,.site-header.nav-open{background:rgba(246,241,234,.96);box-shadow:0 1px 0 var(--oat)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:400 1.125rem/1 var(--serif);letter-spacing:.01em;white-space:nowrap}
+.brand img{width:32px;height:auto}
+.nav{display:flex;align-items:center;gap:clamp(20px,3vw,40px)}
+.nav a:not(.btn){font-size:.9375rem;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .3s var(--ease);padding-block:4px}
+.nav a:not(.btn):hover{background-size:100% 1px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;font:500 .9375rem/1 var(--sans);letter-spacing:.01em;text-decoration:none;transition:background-color .25s,color .25s,border-color .25s}
+.btn--solid{background:var(--walnut);color:var(--linen)}
+.btn--solid:hover{background:#4A3B2F}
+.btn svg{width:16px;height:16px;flex:none}
+.bar .btn{min-height:42px;padding:0 20px}
+.menu-btn{display:none;width:44px;height:44px;margin-right:-10px;border:0;background:none;color:inherit;cursor:pointer;position:relative}
+.menu-btn span{position:absolute;left:11px;right:11px;height:1.5px;background:currentColor;transition:transform .3s var(--ease)}
+.menu-btn span:nth-of-type(1){top:17px}.menu-btn span:nth-of-type(2){top:25px}
+.nav-open .menu-btn span:nth-of-type(1){transform:translateY(4px) rotate(45deg)}
+.nav-open .menu-btn span:nth-of-type(2){transform:translateY(-4px) rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{padding-block:clamp(24px,5vw,56px) var(--section)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:end}
+.hero h1{font-size:clamp(2.6rem,5.4vw,4.75rem);line-height:1.04;letter-spacing:-.015em;margin-bottom:.55em}
+.hero__lede{max-width:32em;color:var(--umber);font-size:1.125rem}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-top:40px}
+.link{font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px;text-decoration-color:var(--oat);transition:text-decoration-color .25s}
+.link:hover{text-decoration-color:currentColor}
+.hero__figure{margin:0;display:grid;grid-template-columns:minmax(0,1fr) 40px;grid-template-rows:36px auto;justify-self:end;width:min(100%,calc((100svh - 190px) * .8 + 40px));min-width:min(100%,360px)}
+.hero__img{grid-area:2/1;aspect-ratio:4/5;background:var(--sand);overflow:hidden}
+.hero__img img{width:100%;height:100%;object-fit:cover}
+
+/* drawing dimensions: used around the hero image and across the three stages */
+.dim{position:relative;color:var(--brass)}
+.dim i{position:absolute;background:currentColor}
+.dim::before,.dim::after{content:"";position:absolute;background:currentColor}
+.dim span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--linen);color:var(--umber);font:500 .75rem/1 var(--sans);letter-spacing:.08em;font-variant-numeric:tabular-nums;padding:0 .75em;white-space:nowrap}
+.dim--w i{left:0;right:0;top:50%;height:1px}
+.dim--w::before,.dim--w::after{top:calc(50% - 7px);width:1px;height:15px;transform:rotate(45deg)}
+.dim--w::before{left:0}.dim--w::after{right:0}
+.dim--h i{top:0;bottom:0;left:50%;width:1px}
+.dim--h::before,.dim--h::after{left:calc(50% - 7px);height:1px;width:15px;transform:rotate(45deg)}
+.dim--h::before{top:0}.dim--h::after{bottom:0}
+.dim--h span{writing-mode:vertical-rl;transform:translate(-50%,-50%) rotate(180deg);padding:.75em 0}
+.hero__figure .dim--w{grid-area:1/1}
+.hero__figure .dim--h{grid-area:2/2}
+.js .hero .dim--w i{transform:scaleX(0)}
+.js .hero .dim--h i{transform:scaleY(0)}
+.js .hero .dim::before,.js .hero .dim::after,.js .hero .dim span{opacity:0}
+.go .hero .dim--w i{animation:draw-x .9s var(--ease) 1.85s forwards}
+.go .hero .dim--h i{animation:draw-y .9s var(--ease) 1.95s forwards}
+.go .hero .dim::before,.go .hero .dim::after,.go .hero .dim span{animation:fade .5s ease 2.55s forwards}
+@keyframes draw-x{to{transform:scaleX(1)}}
+@keyframes draw-y{to{transform:scaleY(1)}}
+@keyframes fade{to{opacity:1}}
+
+/* ---------- Sections ---------- */
+.section{padding-block:var(--section);content-visibility:auto;contain-intrinsic-size:auto 900px}
+.section--chalk{background:var(--chalk)}
+.section--sand{background:var(--sand)}
+.h2{font-size:clamp(2.1rem,4.4vw,3.5rem);line-height:1.08;letter-spacing:-.01em}
+.intro-text{color:var(--umber);max-width:30em;margin-top:20px}
+
+/* Why one studio */
+.statement{font:400 clamp(1.6rem,3.3vw,2.6rem)/1.32 var(--serif);max-width:24em;letter-spacing:-.005em}
+.points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,64px);margin-top:clamp(56px,7vw,96px);padding-top:32px;border-top:1px solid var(--oat)}
+.points h3{font-size:1.3rem;line-height:1.25;margin-bottom:10px}
+.points p{color:var(--umber)}
+
+/* Everything in one place: three stages */
+.approach__head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px clamp(40px,7vw,112px);align-items:end}
+.approach__head .intro-text{margin-top:0}
+.chain{margin-top:clamp(56px,7vw,96px)}
+.chain .dim span{background:var(--sand)}
+.chain__all{height:34px}
+.chain__all span{font-size:.8125rem;color:var(--walnut)}
+.chain__parts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.chain__parts .dim{height:26px}
+.stages{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));counter-reset:stage}
+.stage{counter-increment:stage;padding-right:clamp(24px,3.5vw,56px)}
+.stage::before{content:counter(stage);display:block;font:400 2.6rem/1 var(--serif);color:var(--brass);margin-bottom:24px}
+.stage h3{font-size:clamp(1.6rem,2.4vw,2rem);line-height:1.15}
+.stage>p{color:var(--umber);margin-top:12px;max-width:24em}
+.stage ul{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid rgba(47,38,31,.2)}
+.stage li{padding:13px 0;border-bottom:1px solid rgba(47,38,31,.2);font-size:.98rem}
+@supports (grid-template-rows:subgrid){
+  .stages{grid-template-rows:repeat(4,auto)}
+  .stage{display:grid;grid-row:span 4;grid-template-rows:subgrid;align-content:start}
+}
+.stages-wrap{position:relative}
+.stages__label{display:none}
+
+/* Services */
+.services .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,7vw,112px)}
+.services__head{align-self:start;position:sticky;top:120px}
+.svc-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--oat)}
+.svc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:12px 32px;padding:30px 0;border-bottom:1px solid var(--oat);align-items:baseline}
+.svc h3{font-size:clamp(1.35rem,2.1vw,1.65rem);line-height:1.2}
+.svc p{color:var(--umber)}
+
+/* Work */
+.work__head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,72px)}
+.work-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(40px,5vw,64px) 24px;align-items:start}
+.work-item{margin:0}
+.frame{background:var(--sand);overflow:hidden}
+.frame img{width:100%;height:100%;object-fit:cover}
+.work-item figcaption{margin-top:16px;display:flex;flex-direction:column;gap:2px}
+.work-item strong{font:400 1.2rem/1.3 var(--serif)}
+.work-item span{color:var(--umber);font-size:.9375rem}
+.w-living{grid-column:1/6}
+.w-living .frame{aspect-ratio:8/11}
+.w-kitchen{grid-column:7/13;margin-top:clamp(64px,12vw,180px)}
+.w-kitchen .frame{aspect-ratio:3/2}
+.w-wardrobe{grid-column:2/7}
+.w-wardrobe .frame,.w-entrance .frame{aspect-ratio:1}
+.w-entrance{grid-column:8/12;margin-top:clamp(48px,8vw,120px)}
+
+/* Contact */
+.reach{list-style:none;margin:clamp(48px,6vw,80px) 0 0;padding:0;border-top:1px solid var(--oat)}
+.reach a{display:grid;grid-template-columns:180px minmax(0,1fr) 44px;align-items:center;gap:8px 24px;padding:clamp(24px,3vw,36px) 0;border-bottom:1px solid var(--oat);text-decoration:none}
+.reach__label{color:var(--umber);font-size:.9375rem}
+.reach__value{font:400 clamp(1.45rem,3.2vw,2.5rem)/1.2 var(--serif);overflow-wrap:anywhere}
+.reach__value small{display:block;font:400 1rem/1.5 var(--sans);color:var(--umber);margin-top:6px}
+.reach__icon{width:44px;height:44px;border-radius:50%;border:1px solid var(--oat);display:grid;place-items:center;transition:background-color .25s,border-color .25s,color .25s}
+.reach__icon svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.reach a:hover .reach__icon{background:var(--walnut);border-color:var(--walnut);color:var(--linen)}
+.reach a:hover .reach__icon svg{transform:translate(2px,-2px)}
+
+/* Footer */
+.footer{background:var(--sand);padding-block:40px;font-size:.9375rem;color:var(--umber)}
+.footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px 32px;flex-wrap:wrap}
+.footer .brand{color:var(--walnut);font-size:1rem}
+.footer .brand img{width:26px}
+.footer nav{display:flex;gap:24px;flex-wrap:wrap}
+.footer nav a{text-decoration:none}
+.footer nav a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1020px){
+  .services .wrap,.approach__head{grid-template-columns:1fr}
+  .services__head{position:static}
+}
+@media (max-width:860px){
+  html{scroll-padding-top:64px}
+  .bar{height:64px}
+  .menu-btn{display:block}
+  .bar .btn{display:none}
+  .nav{position:fixed;left:0;right:0;top:64px;height:calc(100dvh - 64px);background:var(--linen);flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:0;padding:12px var(--pad) 40px;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .3s,transform .3s var(--ease),visibility 0s .3s}
+  .nav a:not(.btn){font:400 2rem/1 var(--serif);padding:18px 0;width:100%;border-bottom:1px solid var(--oat);background:none}
+  .nav .btn{display:inline-flex;margin-top:32px;font:500 1rem/1 var(--sans);padding:0 28px}
+  .nav-open .nav{visibility:visible;opacity:1;transform:none;transition:opacity .3s,transform .3s var(--ease)}
+  .hero .wrap{grid-template-columns:1fr;gap:56px}
+  .hero__figure{justify-self:stretch;width:auto;min-width:0;grid-template-columns:minmax(0,1fr) 32px;grid-template-rows:30px auto}
+  .hero__img{aspect-ratio:4/4.4}
+  .points{grid-template-columns:1fr;gap:28px}
+  /* stages stack, measured by one vertical dimension line */
+  .chain{display:none}
+  .stages-wrap{margin-top:48px;padding-left:52px}
+  .stages-wrap::before{content:"";position:absolute;left:18px;top:0;bottom:0;width:1px;background:var(--brass)}
+  .stages-wrap::after{content:"";position:absolute;left:11px;bottom:0;width:15px;height:1px;background:var(--brass);transform:rotate(45deg)}
+  .stages__label{display:block;position:absolute;left:18px;top:50%;transform:translate(-50%,-50%) rotate(180deg);writing-mode:vertical-rl;background:var(--sand);padding:.9em 0;font:500 .8125rem/1 var(--sans);letter-spacing:.08em;white-space:nowrap}
+  .stages{grid-template-columns:1fr;grid-template-rows:none;margin:0}
+  .stage{display:block;position:relative;padding:0 0 48px}
+  .stage:last-child{padding-bottom:8px}
+  .stage::after{content:"";position:absolute;left:-41px;top:0;width:15px;height:1px;background:var(--brass);transform:rotate(45deg)}
+  .stage::before{font-size:2.2rem;margin-bottom:16px}
+  .svc{grid-template-columns:1fr;padding:24px 0}
+  .work-grid{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad);scroll-padding-inline:var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .work-grid::-webkit-scrollbar{display:none}
+  .work-item{flex:none;scroll-snap-align:start;margin:0!important}
+  .work-item .frame{height:min(64vh,420px)}
+  .w-kitchen .frame{aspect-ratio:4/3}
+  .work-item figcaption{max-width:78vw}
+  .reach a{grid-template-columns:minmax(0,1fr) 44px;padding:24px 0}
+  .reach__label{grid-column:1/-1}
+  .reach__value{grid-column:1}
+}
+@media (max-width:560px){
+  body{font-size:1rem}
+  .hero__lede{font-size:1.0625rem}
+  .actions .btn{flex:1 1 100%}
+  .footer .wrap{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){
+  .go .intro{animation:intro-fade .35s ease .8s forwards}
+  .intro__mask,.intro__mask img,.intro__word,.intro__rule{transform:none!important;opacity:1!important;animation:none!important}
+  .hero .dim i,.hero .dim::before,.hero .dim::after,.hero .dim span{opacity:1!important;animation:none!important}
+  .hero .dim i{transform:none!important}
+  *{transition-duration:.01ms!important}
+}
+@keyframes intro-fade{to{opacity:0;visibility:hidden}}
+</style>
+
+<!-- EDIT: business details for Google (same values as the contact section) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Interior Craft Studio",
+  "description": "Interior planning, design and execution, all in one place.",
+  "url": "https://your-domain.vercel.app/",
+  "image": "https://your-domain.vercel.app/og-image.jpg",
+  "telephone": "+910000000000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Studio address line",
+    "addressLocality": "City",
+    "postalCode": "000000",
+    "addressCountry": "IN"
+  },
+  "sameAs": ["https://www.instagram.com/your.instagram/"]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__stack">
+    <div class="intro__mask"><img src="assets/logo-mark.webp" width="300" height="342" alt="" fetchpriority="high"></div>
+    <img class="intro__word" src="assets/logo-word.webp" width="600" height="168" alt="">
+    <span class="intro__rule"></span>
+  </div>
+</div>
+<script>
+(function(){
+  var root=document.documentElement,intro=document.getElementById('intro'),started=false;
+  function go(){if(!started){started=true;root.classList.add('go')}}
+  function done(){if(intro.parentNode)intro.parentNode.removeChild(intro);root.classList.remove('is-intro')}
+  var imgs=intro.getElementsByTagName('img'),waits=[];
+  for(var i=0;i<imgs.length;i++)waits.push(imgs[i].decode?imgs[i].decode().catch(function(){}):0);
+  Promise.all(waits).then(go);
+  setTimeout(go,1000);
+  setTimeout(done,4200);
+  intro.addEventListener('animationend',function(e){if(e.target===intro)done()});
+  intro.addEventListener('click',function(){go();intro.classList.add('skip')});
+})();
+</script>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Interior Craft Studio, back to top">
+      <img src="assets/logo-mark.webp" width="300" height="342" alt="">
+      <span>Interior Craft Studio</span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="#approach">How it works</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+      <!-- EDIT: phone number -->
+      <a class="btn btn--solid" href="tel:+910000000000">Call the studio</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-controls="site-nav" aria-expanded="false"><b class="sr">Menu</b><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <h1>Planning, design and execution, all in one place.</h1>
+        <p class="hero__lede">Interior Craft Studio takes your home or workspace from an empty floor plan to finished rooms. We plan the space, design every detail and build it with our own team, so there is one studio to call for all of it.</p>
+        <div class="actions">
+          <!-- EDIT: phone number -->
+          <a class="btn btn--solid" href="tel:+910000000000">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+            Call to book a site visit
+          </a>
+          <a class="link" href="#approach">See how it works</a>
+        </div>
+      </div>
+      <figure class="hero__figure">
+        <div class="dim dim--w" aria-hidden="true"><i></i><span>2400</span></div>
+        <div class="hero__img">
+          <!-- EDIT: replace images/hero.webp with your own photo (portrait works best) -->
+          <img src="images/hero.webp" width="1000" height="1250" alt="An arched wall niche with a ceramic vase, above a built-in oak bench" fetchpriority="high" decoding="async">
+        </div>
+        <div class="dim dim--h" aria-hidden="true"><i></i><span>3000</span></div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--chalk" id="studio" aria-labelledby="studio-title">
+    <div class="wrap">
+      <h2 class="sr" id="studio-title">Why one studio</h2>
+      <p class="statement">Most interiors slow down in the gaps between a designer, a contractor and a carpenter. We close those gaps by doing all three ourselves, so one team answers for your space from the first sketch to the final finish.</p>
+      <div class="points">
+        <div>
+          <h3>One point of contact</h3>
+          <p>A single project lead stays with you through planning, design and site work, so you always know who to call.</p>
+        </div>
+        <div>
+          <h3>Designs that can be built</h3>
+          <p>Our designers work next to the people who build, so every drawing is detailed and costed for site from day one.</p>
+        </div>
+        <div>
+          <h3>One schedule</h3>
+          <p>Planning, design and execution run on one timeline, with no waiting between separate vendors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand" id="approach" aria-labelledby="approach-title">
+    <div class="wrap">
+      <div class="approach__head">
+        <h2 class="h2" id="approach-title">Everything in one place</h2>
+        <p class="intro-text">Three stages, one team, and nothing for you to coordinate. Each stage leads straight into the next, with the same people carrying your project through.</p>
+      </div>
+      <div class="chain" aria-hidden="true">
+        <div class="dim dim--w chain__all"><i></i><span>One studio, start to finish</span></div>
+        <div class="chain__parts">
+          <div class="dim dim--w"><i></i></div><div class="dim dim--w"><i></i></div><div class="dim dim--w"><i></i></div>
+        </div>
+      </div>
+      <div class="stages-wrap">
+        <span class="stages__label" aria-hidden="true">One studio, start to finish</span>
+        <ol class="stages">
+          <li class="stage">
+            <h3>Planning</h3>
+            <p>We visit, measure and learn how you live or work, then turn it into a clear plan you can sign off.</p>
+            <ul>
+              <li>Site visit and measurements</li>
+              <li>Space planning and furniture layouts</li>
+              <li>Budget and timeline</li>
+              <li>Scope of work</li>
+            </ul>
+          </li>
+          <li class="stage">
+            <h3>Design</h3>
+            <p>Every room is designed in detail before anything is built, so you see exactly what you are getting.</p>
+            <ul>
+              <li>Concept and mood boards</li>
+              <li>3D views of each room</li>
+              <li>Materials, finishes and colours</li>
+              <li>Working drawings for site and workshop</li>
+            </ul>
+          </li>
+          <li class="stage">
+            <h3>Execution</h3>
+            <p>Our own team builds it, from carpentry in the workshop to the final clean on site.</p>
+            <ul>
+              <li>Modular furniture and carpentry</li>
+              <li>False ceilings, lighting and electrical</li>
+              <li>Panelling, painting and finishes</li>
+              <li>Site supervision and handover</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="services__head">
+        <h2 class="h2" id="services-title">What we plan, design and build</h2>
+        <p class="intro-text">Take a single room or the whole home. Each piece goes through the same three stages, with the same team.</p>
+      </div>
+      <ul class="svc-list">
+        <li class="svc"><h3>Complete homes</h3><p>Apartments and villas planned, designed and fitted out as one project.</p></li>
+        <li class="svc"><h3>Offices and workspaces</h3><p>Layouts, storage and finishes that suit how your team works.</p></li>
+        <li class="svc"><h3>Modular kitchens</h3><p>Planned around how you cook, in finishes that take daily use.</p></li>
+        <li class="svc"><h3>Wardrobes and storage</h3><p>Full-height units, with the inside planned before the outside.</p></li>
+        <li class="svc"><h3>Wall panelling and ceilings</h3><p>Fluted and veneer panels, and false ceilings with the lighting planned in.</p></li>
+        <li class="svc"><h3>Furniture made to size</h3><p>Beds, consoles, TV units and tables built for the room they sit in.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--chalk work" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="work__head">
+        <h2 class="h2" id="work-title">Recent work</h2>
+        <!-- EDIT: Instagram link -->
+        <a class="link" href="https://www.instagram.com/your.instagram/" target="_blank" rel="noopener">More projects on Instagram</a>
+      </div>
+      <!-- EDIT: replace the files in /images with your project photos, keeping the same names -->
+      <div class="work-grid">
+        <figure class="work-item w-living">
+          <div class="frame"><img src="images/work-living.webp" width="800" height="1100" alt="Fluted wall panel behind a low oak console" loading="lazy" decoding="async"></div>
+          <figcaption><strong>Living room</strong><span>Fluted wall panel and a low oak console</span></figcaption>
+        </figure>
+        <figure class="work-item w-kitchen">
+          <div class="frame"><img src="images/work-kitchen.webp" width="1200" height="800" alt="Handleless kitchen base units under an open oak shelf" loading="lazy" decoding="async"></div>
+          <figcaption><strong>Kitchen</strong><span>Handleless base units with open oak shelving</span></figcaption>
+        </figure>
+        <figure class="work-item w-wardrobe">
+          <div class="frame"><img src="images/work-wardrobe.webp" width="900" height="900" alt="Full-height wardrobe with slim oak pulls beside an arched mirror" loading="lazy" decoding="async"></div>
+          <figcaption><strong>Bedroom</strong><span>Full-height wardrobe with slim oak pulls</span></figcaption>
+        </figure>
+        <figure class="work-item w-entrance">
+          <div class="frame"><img src="images/work-entrance.webp" width="900" height="900" alt="Arched doorway beside a built-in plaster bench" loading="lazy" decoding="async"></div>
+          <figcaption><strong>Entrance</strong><span>Arched opening and a built-in bench</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 class="h2" id="contact-title">Start with a site visit</h2>
+      <p class="intro-text">Call us to book a visit. From there, we take care of the planning, the design and the build.</p>
+      <ul class="reach">
+        <li>
+          <!-- EDIT: phone number (tel: link has no spaces) -->
+          <a href="tel:+910000000000">
+            <span class="reach__label">Call</span>
+            <span class="reach__value">+91 00000 00000</span>
+            <span class="reach__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <!-- EDIT: address. Paste your Google Maps share link into href for the exact pin -->
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Interior+Craft+Studio" target="_blank" rel="noopener">
+            <span class="reach__label">Visit</span>
+            <span class="reach__value">Studio address line<small>Area, City 000 000</small></span>
+            <span class="reach__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <!-- EDIT: Instagram handle -->
+          <a href="https://www.instagram.com/your.instagram/" target="_blank" rel="noopener">
+            <span class="reach__label">Instagram</span>
+            <span class="reach__value">@your.instagram</span>
+            <span class="reach__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/logo-mark.webp" width="300" height="342" alt="" loading="lazy">Interior Craft Studio</a>
+    <nav aria-label="Footer">
+      <a href="#approach">How it works</a><a href="#services">Services</a><a href="#work">Work</a><a href="#contact">Contact</a>
+    </nav>
+    <p>© <span id="year">2026</span> Interior Craft Studio. Planning, design and execution in one place.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement,header=d.querySelector('.site-header'),btn=d.querySelector('.menu-btn'),nav=d.getElementById('site-nav'),ticking=false;
+  function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(function(){header.classList.toggle('is-scrolled',window.scrollY>8);ticking=false})}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  function setNav(open){header.classList.toggle('nav-open',open);btn.setAttribute('aria-expanded',open?'true':'false');root.classList.toggle('lock',open)}
+  btn.addEventListener('click',function(){setNav(btn.getAttribute('aria-expanded')!=='true')});
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))setNav(false)});
+  addEventListener('keydown',function(e){if(e.key==='Escape')setNav(false)});
+  matchMedia('(min-width:861px)').addEventListener('change',function(e){if(e.matches)setNav(false)});
+  d.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
