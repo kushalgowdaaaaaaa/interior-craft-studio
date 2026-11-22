@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Interior Craft Studio · Interior planning, design and execution in one place</title>
-<meta name="description" content="Interior Craft Studio plans, designs and builds interiors for homes and workspaces. Planning, design and execution, all in one place, with one team from the first measurement to handover.">
+<title>Interior Craft Studio · Planning, Construction, Renovation & Turnkey Interiors</title>
+<meta name="description" content="Interior Craft Studio delivers complete solutions under one roof — from architectural planning and ground-up construction to full home renovations and bespoke turnkey interiors.">
 <meta name="theme-color" content="#F6F1EA">
 <!-- EDIT: replace https://your-domain.vercel.app with your live address after the first deploy -->
 <link rel="canonical" href="https://your-domain.vercel.app/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Interior Craft Studio">
-<meta property="og:description" content="Interior planning, design and execution, all in one place.">
+<meta property="og:title" content="Interior Craft Studio · Planning, Construction, Renovation & Interiors">
+<meta property="og:description" content="From architectural planning and civil construction to complete renovations and handcrafted turnkey interiors, all in one place.">
 <meta property="og:url" content="https://your-domain.vercel.app/">
 <meta property="og:image" content="https://your-domain.vercel.app/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -41,10 +41,10 @@
   --ease:cubic-bezier(.65,0,.25,1);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:76px}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:76px;overflow-x:hidden}
 html.is-intro,html.lock{overflow:hidden}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-body{margin:0;background:var(--linen);color:var(--walnut);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--linen);color:var(--walnut);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;overflow-x:hidden;width:100%}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance}
@@ -224,11 +224,12 @@ p{margin:0;text-wrap:pretty}
   .bar{height:64px}
   .menu-btn{display:block}
   .bar .btn{display:none}
-  .nav{position:fixed;left:0;right:0;top:64px;height:calc(100dvh - 64px);background:var(--linen);flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:0;padding:12px var(--pad) 40px;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .3s,transform .3s var(--ease),visibility 0s .3s}
+  .nav{position:fixed;left:0;right:0;top:64px;height:calc(100dvh - 64px);background:var(--linen);flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:0;padding:12px var(--pad) 40px;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .3s,transform .3s var(--ease),visibility 0s .3s;overflow-y:auto}
   .nav a:not(.btn){font:400 2rem/1 var(--serif);padding:18px 0;width:100%;border-bottom:1px solid var(--oat);background:none}
-  .nav .btn{display:inline-flex;margin-top:32px;font:500 1rem/1 var(--sans);padding:0 28px}
+  .nav .btn{display:inline-flex;margin-top:32px;font:500 1rem/1 var(--sans);padding:0 28px;width:100%}
   .nav-open .nav{visibility:visible;opacity:1;transform:none;transition:opacity .3s,transform .3s var(--ease)}
-  .hero .wrap{grid-template-columns:1fr;gap:56px}
+  .hero .wrap{grid-template-columns:1fr;gap:44px}
+  .hero h1{font-size:clamp(2.1rem,6.8vw,3.2rem);line-height:1.08}
   .hero__figure{justify-self:stretch;width:auto;min-width:0;grid-template-columns:minmax(0,1fr) 32px;grid-template-rows:30px auto}
   .hero__img{aspect-ratio:4/4.4}
   .points{grid-template-columns:1fr;gap:28px}
@@ -244,12 +245,14 @@ p{margin:0;text-wrap:pretty}
   .stage::after{content:"";position:absolute;left:-41px;top:0;width:15px;height:1px;background:var(--brass);transform:rotate(45deg)}
   .stage::before{font-size:2.2rem;margin-bottom:16px}
   .svc{grid-template-columns:1fr;padding:24px 0}
-  .work-grid{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad);scroll-padding-inline:var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .work-grid{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad);scroll-padding-inline:var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .work-grid::-webkit-scrollbar{display:none}
-  .work-item{flex:none;scroll-snap-align:start;margin:0!important}
-  .work-item .frame{height:min(64vh,420px)}
-  .w-kitchen .frame{aspect-ratio:4/3}
-  .work-item figcaption{max-width:78vw}
+  .work-item{flex:0 0 min(82vw, 340px);scroll-snap-align:start;margin:0!important}
+  .work-item .frame{width:100%;height:auto}
+  .w-living .frame{aspect-ratio:8/11}
+  .w-kitchen .frame{aspect-ratio:3/2}
+  .w-wardrobe .frame,.w-entrance .frame{aspect-ratio:1/1}
+  .work-item figcaption{max-width:100%}
   .reach a{grid-template-columns:minmax(0,1fr) 44px;padding:24px 0}
   .reach__label{grid-column:1/-1}
   .reach__value{grid-column:1}
@@ -257,8 +260,14 @@ p{margin:0;text-wrap:pretty}
 @media (max-width:560px){
   body{font-size:1rem}
   .hero__lede{font-size:1.0625rem}
-  .actions .btn{flex:1 1 100%}
+  .actions{margin-top:28px}
+  .actions .btn{flex:1 1 100%;width:100%}
   .footer .wrap{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:360px){
+  :root{--pad:16px}
+  .brand span{font-size:.95rem}
+  .hero h1{font-size:1.9rem}
 }
 @media (prefers-reduced-motion:reduce){
   .go .intro{animation:intro-fade .35s ease .8s forwards}
@@ -276,7 +285,7 @@ p{margin:0;text-wrap:pretty}
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": "Interior Craft Studio",
-  "description": "Interior planning, design and execution, all in one place.",
+  "description": "Turnkey architectural planning, civil construction, home renovations, and bespoke handcrafted interiors under one roof.",
   "url": "https://your-domain.vercel.app/",
   "image": "https://your-domain.vercel.app/og-image.jpg",
   "telephone": "+910000000000",
@@ -338,8 +347,8 @@ p{margin:0;text-wrap:pretty}
   <section class="hero" id="top">
     <div class="wrap">
       <div>
-        <h1>Planning, design and execution, all in one place.</h1>
-        <p class="hero__lede">Interior Craft Studio takes your home or workspace from an empty floor plan to finished rooms. We plan the space, design every detail and build it with our own team, so there is one studio to call for all of it.</p>
+        <h1>Planning, construction, renovations and interiors. All in one place.</h1>
+        <p class="hero__lede">Interior Craft Studio delivers complete spaces under one roof — whether building from the ground up, renovating an existing property, or crafting bespoke luxury interiors. With our own architects, civil engineers, and master carpenters, there is only one studio to call from blueprint to handover.</p>
         <div class="actions">
           <!-- EDIT: phone number -->
           <a class="btn btn--solid" href="tel:+910000000000">
@@ -363,19 +372,19 @@ p{margin:0;text-wrap:pretty}
   <section class="section section--chalk" id="studio" aria-labelledby="studio-title">
     <div class="wrap">
       <h2 class="sr" id="studio-title">Why one studio</h2>
-      <p class="statement">Most interiors slow down in the gaps between a designer, a contractor and a carpenter. We close those gaps by doing all three ourselves, so one team answers for your space from the first sketch to the final finish.</p>
+      <p class="statement">Most builds and renovations stall in the gaps between architects, civil contractors, renovation workers and interior carpenters. We close those gaps by handling every phase ourselves — from structural construction and complete home renovation to handcrafted interior fit-outs.</p>
       <div class="points">
         <div>
           <h3>One point of contact</h3>
-          <p>A single project lead stays with you through planning, design and site work, so you always know who to call.</p>
+          <p>A single dedicated project lead manages your site surveys, architectural planning, civil work, and custom interior finishes.</p>
         </div>
         <div>
-          <h3>Designs that can be built</h3>
-          <p>Our designers work next to the people who build, so every drawing is detailed and costed for site from day one.</p>
+          <h3>Designs built to last</h3>
+          <p>Our architects work alongside our civil engineers and workshop craftspeople, ensuring every plan is structurally verified and budget-accurate.</p>
         </div>
         <div>
-          <h3>One schedule</h3>
-          <p>Planning, design and execution run on one timeline, with no waiting between separate vendors.</p>
+          <h3>One synchronized schedule</h3>
+          <p>Planning, structural construction, renovation, and interior finishing run on one integrated timeline with zero vendor finger-pointing.</p>
         </div>
       </div>
     </div>
@@ -384,8 +393,8 @@ p{margin:0;text-wrap:pretty}
   <section class="section section--sand" id="approach" aria-labelledby="approach-title">
     <div class="wrap">
       <div class="approach__head">
-        <h2 class="h2" id="approach-title">Everything in one place</h2>
-        <p class="intro-text">Three stages, one team, and nothing for you to coordinate. Each stage leads straight into the next, with the same people carrying your project through.</p>
+        <h2 class="h2" id="approach-title">From blueprint to handover</h2>
+        <p class="intro-text">Three clear stages, one unified team. From architectural drawings and ground-up civil construction to complete renovations and bespoke interior craft.</p>
       </div>
       <div class="chain" aria-hidden="true">
         <div class="dim dim--w chain__all"><i></i><span>One studio, start to finish</span></div>
@@ -397,33 +406,33 @@ p{margin:0;text-wrap:pretty}
         <span class="stages__label" aria-hidden="true">One studio, start to finish</span>
         <ol class="stages">
           <li class="stage">
-            <h3>Planning</h3>
-            <p>We visit, measure and learn how you live or work, then turn it into a clear plan you can sign off.</p>
+            <h3>Planning & Architecture</h3>
+            <p>Every project starts with site feasibility, structural evaluations, and clear architectural plans.</p>
             <ul>
-              <li>Site visit and measurements</li>
-              <li>Space planning and furniture layouts</li>
-              <li>Budget and timeline</li>
-              <li>Scope of work</li>
+              <li>Site survey, measurements & structural assessment</li>
+              <li>Architectural space planning & 2D/3D layouts</li>
+              <li>Concept mood boards, materials & colour palettes</li>
+              <li>Permit advisory, scope of work & transparent budgets</li>
             </ul>
           </li>
           <li class="stage">
-            <h3>Design</h3>
-            <p>Every room is designed in detail before anything is built, so you see exactly what you are getting.</p>
+            <h3>Construction & Renovation</h3>
+            <p>Our experienced site engineers execute ground-up construction and full structural transformations.</p>
             <ul>
-              <li>Concept and mood boards</li>
-              <li>3D views of each room</li>
-              <li>Materials, finishes and colours</li>
-              <li>Working drawings for site and workshop</li>
+              <li>New civil construction & villa building</li>
+              <li>Full-home & commercial space renovations</li>
+              <li>Demolition, wall reconfiguration & masonry</li>
+              <li>Core electrical, plumbing, waterproofing & false ceilings</li>
             </ul>
           </li>
           <li class="stage">
-            <h3>Execution</h3>
-            <p>Our own team builds it, from carpentry in the workshop to the final clean on site.</p>
+            <h3>Turnkey Interiors & Fit-Out</h3>
+            <p>Precision craftsmanship from our dedicated workshop directly to your finished space.</p>
             <ul>
-              <li>Modular furniture and carpentry</li>
-              <li>False ceilings, lighting and electrical</li>
-              <li>Panelling, painting and finishes</li>
-              <li>Site supervision and handover</li>
+              <li>Bespoke modular kitchens & full-height wardrobes</li>
+              <li>Architectural wood panelling, fluting & stone accents</li>
+              <li>Custom furniture made to room dimensions</li>
+              <li>Site supervision, final deep clean & turnkey handover</li>
             </ul>
           </li>
         </ol>
@@ -434,16 +443,18 @@ p{margin:0;text-wrap:pretty}
   <section class="section services" id="services" aria-labelledby="services-title">
     <div class="wrap">
       <div class="services__head">
-        <h2 class="h2" id="services-title">What we plan, design and build</h2>
-        <p class="intro-text">Take a single room or the whole home. Each piece goes through the same three stages, with the same team.</p>
+        <h2 class="h2" id="services-title">What we plan, build and craft</h2>
+        <p class="intro-text">From ground-up construction and whole-property renovations to single-room custom interiors, every build is managed by our in-house team.</p>
       </div>
       <ul class="svc-list">
-        <li class="svc"><h3>Complete homes</h3><p>Apartments and villas planned, designed and fitted out as one project.</p></li>
-        <li class="svc"><h3>Offices and workspaces</h3><p>Layouts, storage and finishes that suit how your team works.</p></li>
-        <li class="svc"><h3>Modular kitchens</h3><p>Planned around how you cook, in finishes that take daily use.</p></li>
-        <li class="svc"><h3>Wardrobes and storage</h3><p>Full-height units, with the inside planned before the outside.</p></li>
-        <li class="svc"><h3>Wall panelling and ceilings</h3><p>Fluted and veneer panels, and false ceilings with the lighting planned in.</p></li>
-        <li class="svc"><h3>Furniture made to size</h3><p>Beds, consoles, TV units and tables built for the room they sit in.</p></li>
+        <li class="svc"><h3>New Construction & Civil Work</h3><p>Ground-up residences, villas, and commercial builds engineered to structural specifications and delivered on schedule.</p></li>
+        <li class="svc"><h3>Complete Renovations</h3><p>Transforming existing homes and offices with structural remodeling, wall reconfigurations, and full modern upgrades.</p></li>
+        <li class="svc"><h3>Turnkey Home Interiors</h3><p>Apartments and villas designed and fitted out end-to-end with premium materials and cohesive styling.</p></li>
+        <li class="svc"><h3>Offices & Commercial Spaces</h3><p>High-performance workspaces, boardrooms, and retail interiors that reflect your brand and team workflow.</p></li>
+        <li class="svc"><h3>Modular Kitchens</h3><p>Ergonomic kitchen architecture planned around your cooking habits, featuring heat- and moisture-resistant finishes.</p></li>
+        <li class="svc"><h3>Wardrobes & Storage</h3><p>Floor-to-ceiling built-in wardrobes, walk-in closets, and concealed storage designed from the inside out.</p></li>
+        <li class="svc"><h3>Panelling & Ceilings</h3><p>Fluted oak, warm acoustic veneer panels, and false ceilings with integrated architectural cove lighting.</p></li>
+        <li class="svc"><h3>Furniture Made to Size</h3><p>Bespoke dining tables, low media consoles, bed frames, and vanities built specifically for your rooms.</p></li>
       </ul>
     </div>
   </section>
@@ -480,7 +491,7 @@ p{margin:0;text-wrap:pretty}
   <section class="section" id="contact" aria-labelledby="contact-title">
     <div class="wrap">
       <h2 class="h2" id="contact-title">Start with a site visit</h2>
-      <p class="intro-text">Call us to book a visit. From there, we take care of the planning, the design and the build.</p>
+      <p class="intro-text">Call us to discuss your project. From architectural planning and ground-up construction to renovations and bespoke turnkey interiors, we take care of it all.</p>
       <ul class="reach">
         <li>
           <!-- EDIT: phone number (tel: link has no spaces) -->
@@ -517,7 +528,7 @@ p{margin:0;text-wrap:pretty}
     <nav aria-label="Footer">
       <a href="#approach">How it works</a><a href="#services">Services</a><a href="#work">Work</a><a href="#contact">Contact</a>
     </nav>
-    <p>© <span id="year">2026</span> Interior Craft Studio. Planning, design and execution in one place.</p>
+    <p>© <span id="year">2026</span> Interior Craft Studio. Planning, construction, renovation and turnkey interiors.</p>
   </div>
 </footer>
 
